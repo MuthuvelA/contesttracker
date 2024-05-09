@@ -1,16 +1,18 @@
 import React from 'react';
 import Contest from './Contest';
-
+import "./App.css"
 const ContestsList = ({ contests }) => (
-  <div className="contests-list">
+  <div className="contest-list">
     {contests.map((contest, index) => (
-      <Contest
+       <Contest
         key={index}
-        platform={contest.platform}
-        name={contest.name}
+        title={contest.title}
         startTime={contest.startTime}
+        endTime={contest.endTime}
         duration={contest.duration}
-        link={contest.link}
+        url={contest.url}
+        platform={contest.platform}
+        
       />
     ))}
   </div>
