@@ -74,6 +74,15 @@ select {
   color: #3f51b5;
   flex: 1; /* Added to allow text to take up remaining space */
 }
+.platform-info {
+  display: flex;
+  align-items: center;
+}
+
+.platform-name {
+  font-weight: bold;
+}
+
 
 
 

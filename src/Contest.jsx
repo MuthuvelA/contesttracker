@@ -2,6 +2,12 @@ import React from 'react';
 import "./App.css"
 
 const Contest = ({ title, startTime, endTime, duration, url, platform }) => {
+  const startIST = new Date(startTime).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+  
+  const endIST = new Date(endTime).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+
+
   console.log(platform.toLowerCase())
   const getPlatformLogo = (platform) => {
     switch (platform.toLowerCase()) {
@@ -20,10 +26,13 @@ const Contest = ({ title, startTime, endTime, duration, url, platform }) => {
   return (
     <div className="contest-item">
       <div className="contest-details">
+      <div className="platform-info">
           <img src={platformLogo} alt={`${platform}`} className="platform-logo" />
+          <span className="platform-name">{platform}</span>
+        </div>
         <h2>{title}</h2>
-        <p>Start Time: {startTime}</p>
-        <p>End Time: {endTime}</p>
+        <p>Start Time (IST): {startIST}</p>
+        <p>End Time (IST): {endIST}</p>
         <p>Duration: {duration/60} minutes</p>
         <a href={url} target="_blank" rel="noopener noreferrer">
           Join Contest
