@@ -7,26 +7,32 @@ const ContestPage = () => {
   const [contests, setContests] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchContests('codechef');
     fetchContests('leetcode');
     fetchContests('codeforces');
-  }, []);
+  }, []); // Fetch contests only once on component mount
 
   const fetchContests = async (platform) => {
     try {
       const response = await axios.get(`https://contest-hive.vercel.app/api/${platform}`);
       if (response.data.ok) {
-        setContests((prevContests) => [...prevContests, ...response.data.data]);
+        setContests(prevContests => {
+          const uniqueContests = response.data.data.filter(newContest => !prevContests.some(oldContest => oldContest.title === newContest.title));
+          return [...prevContests, ...uniqueContests];
+        });
       } else {
         console.error('Error fetching contests:', response.data.error);
       }
     } catch (error) {
       console.error('Error fetching contests:', error);
+    } finally {
+      setLoading(false); 
     }
   };
-
+  
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -62,9 +68,13 @@ const ContestPage = () => {
         </div>
       </div>
     
-      <div className="contest-list">
-        <ContestsList contests={filteredContests} />
-      </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="contest-list">
+          <ContestsList contests={filteredContests} />
+        </div>
+      )}
     </div>
   );
 };
