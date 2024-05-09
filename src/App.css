@@ -63,9 +63,9 @@ select {
 }
 
 .platform-logo {
-  width: 20px; /* Adjust size as needed */
-  height: 20px; /* Adjust size as needed */
-  margin-right: 5px; /* Adjust spacing between logo and text */
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  
 }
 
 .contest-item h2 {
