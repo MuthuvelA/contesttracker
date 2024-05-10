@@ -6,7 +6,7 @@ html, body {
 
 #root {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #000000, #2c2fe7);
+  background: #000000;
   color: #ffffff;
   
    display: flex;
