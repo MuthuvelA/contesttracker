@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import ContestsList from './ContestsList';
+import { FaGithub } from 'react-icons/fa';
 
 const ContestPage = () => {
   const [contests, setContests] = useState([]);
@@ -51,20 +52,30 @@ const ContestPage = () => {
   return (
     <div className="contest-page">
       <div className="header">
-        <h1>Online Coding Contests</h1>
-        <div className="search-filter">
-          <input
-            type="text"
-            placeholder="Search contests"
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <select value={filterType} onChange={handleFilterChange}>
-            <option value="all">All Platforms</option>
-            <option value="codechef">CodeChef</option>
-            <option value="leetcode">LeetCode</option>
-            <option value="codeforces">Codeforces</option>
-          </select>
+        <div className="header-left">
+          <h1>Online Coding Contests</h1>
+          <div className="search-filter">
+            <input
+              type="text"
+              placeholder="Search contests"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <select value={filterType} onChange={handleFilterChange}>
+              <option value="all">All Platforms</option>
+              <option value="codechef">CodeChef</option>
+              <option value="leetcode">LeetCode</option>
+              <option value="codeforces">Codeforces</option>
+            </select>
+          </div>
+        </div>
+        <div className="header-right">
+          <div className="github-star">
+            <a href="https://github.com/MuthuvelA/contesttracker" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+              <span><u>Star the repository If you like this ⭐😊</u></span>
+            </a>
+          </div>
         </div>
       </div>
     
