@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import ContestsList from './ContestsList';
 import { FaGithub } from 'react-icons/fa';
-import logo from './logo.png';
+
 const ContestPage = () => {
   const [contests, setContests] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -53,7 +53,6 @@ const ContestPage = () => {
     <div className="contest-page">
       <div className="header">
         <div className="header-left">
-          <img src={logo} alt="Logo" className="logo" />
           <h1>Online Coding Contests</h1>
           <div className="search-filter">
             <input
