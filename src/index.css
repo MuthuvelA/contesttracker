@@ -4,23 +4,7 @@
   margin: 0 auto;
   padding: 2rem;
 }
-.header-left {
-  display: flex;
-  align-items: center;
-}
 
-.logo {
-  width: 50px; 
-  height: auto;
-  margin-right: 10px; 
-}
-
-.loading-logo {
-  width: 50px; 
-  height: auto;
-  display: block;
-  margin: 0 auto; 
-}
 
 .contests-list {
   display: flex;
